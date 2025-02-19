@@ -19,6 +19,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'quotes': ['error', 'double', { 'avoidEscape': true, 'allowTemplateLiterals': true }], // Enforce double quotes
     'no-console': 0,
     'jsx-a11y/label-has-associated-control': 0,
     'no-nested-ternary': 0,
