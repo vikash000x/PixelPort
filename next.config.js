@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
-const dedicatedEndPoint = 'https://sepolia.infura.io';
+const dedicatedEndPoint = "https://sepolia.infura.io";
 const nextConfig = {
- // reactStrictMode: true,
+  // reactStrictMode: true,
   images: {
     domains: ["gateway.pinata.cloud"],
   },

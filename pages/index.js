@@ -1,12 +1,12 @@
-import { useEffect, useState, useRef, useContext } from 'react';
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
+import { useEffect, useState, useRef, useContext } from "react";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
-import { NFTContext } from '../context/NFTContext';
-import { Banner, CreatorCard, Loader, NFTCard, SearchBar } from '../components';
-import images from '../assets';
-import { getCreators } from '../utils/getTopCreators';
-import { shortenAddress } from '../utils/shortenAddress';
+import { NFTContext } from "../context/NFTContext";
+import { Banner, CreatorCard, Loader, NFTCard, SearchBar } from "../components";
+import images from "../assets";
+import { getCreators } from "../utils/getTopCreators";
+import { shortenAddress } from "../utils/shortenAddress";
 
 const Home = () => {
   const { fetchNFTs } = useContext(NFTContext);
@@ -14,7 +14,7 @@ const Home = () => {
   const [nfts, setNfts] = useState([]);
   const [nftsCopy, setNftsCopy] = useState([]);
   const { theme } = useTheme();
-  const [activeSelect, setActiveSelect] = useState('Recently added');
+  const [activeSelect, setActiveSelect] = useState("Recently added");
   const [isLoading, setIsLoading] = useState(true);
 
   const parentRef = useRef(null);
@@ -33,13 +33,13 @@ const Home = () => {
     const sortedNfts = [...nfts];
 
     switch (activeSelect) {
-      case 'Price (low to high)':
+      case "Price (low to high)":
         setNfts(sortedNfts.sort((a, b) => a.price - b.price));
         break;
-      case 'Price (high to low)':
+      case "Price (high to low)":
         setNfts(sortedNfts.sort((a, b) => b.price - a.price));
         break;
-      case 'Recently added':
+      case "Recently added":
         setNfts(sortedNfts.sort((a, b) => b.tokenId - a.tokenId));
         break;
       default:
@@ -69,7 +69,7 @@ const Home = () => {
 
     const scrollAmount = window.innerWidth > 1800 ? 270 : 210;
 
-    if (direction === 'left') {
+    if (direction === "left") {
       current.scrollLeft -= scrollAmount;
     } else {
       current.scrollLeft += scrollAmount;
@@ -90,10 +90,10 @@ const Home = () => {
   useEffect(() => {
     isScrollable();
 
-    window.addEventListener('resize', isScrollable);
+    window.addEventListener("resize", isScrollable);
 
     return () => {
-      window.removeEventListener('resize', isScrollable);
+      window.removeEventListener("resize", isScrollable);
     };
   });
 
@@ -138,11 +138,11 @@ const Home = () => {
               ))} */}
                   {!hideButtons && (
                     <>
-                      <div onClick={() => handleScroll('left')} className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 cursor-pointer left-0">
-                        <Image src={images.left} layout="fill" objectFit="contain" alt="left_arrow" className={theme === 'light' ? 'filter invert' : undefined} />
+                      <div onClick={() => handleScroll("left")} className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 cursor-pointer left-0">
+                        <Image src={images.left} layout="fill" objectFit="contain" alt="left_arrow" className={theme === "light" ? "filter invert" : undefined} />
                       </div>
-                      <div onClick={() => handleScroll('right')} className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 cursor-pointer right-0">
-                        <Image src={images.right} layout="fill" objectFit="contain" alt="left_arrow" className={theme === 'light' ? 'filter invert' : undefined} />
+                      <div onClick={() => handleScroll("right")} className="absolute w-8 h-8 minlg:w-12 minlg:h-12 top-45 cursor-pointer right-0">
+                        <Image src={images.right} layout="fill" objectFit="contain" alt="left_arrow" className={theme === "light" ? "filter invert" : undefined} />
                       </div>
                     </>
                   )}

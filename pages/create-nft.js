@@ -1,16 +1,16 @@
-import { useState, useCallback, useMemo, useContext } from 'react';
-import { useRouter } from 'next/router';
-import { useDropzone } from 'react-dropzone';
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
+import { useState, useCallback, useMemo, useContext } from "react";
+import { useRouter } from "next/router";
+import { useDropzone } from "react-dropzone";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
-import { NFTContext } from '../context/NFTContext';
-import { Button, Input, Loader } from '../components';
-import images from '../assets';
+import { NFTContext } from "../context/NFTContext";
+import { Button, Input, Loader } from "../components";
+import images from "../assets";
 
 const CreateNFT = () => {
   const [fileUrl, setFileUrl] = useState(null);
-  const [formInput, setFormInput] = useState({ price: '', name: '', description: '' });
+  const [formInput, setFormInput] = useState({ price: "", name: "", description: "" });
   const { theme } = useTheme();
   const { isLoadingNFT, uploadToIPFS, createNFT } = useContext(NFTContext);
   const router = useRouter();
@@ -30,15 +30,15 @@ const CreateNFT = () => {
 
   const { getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject } = useDropzone({
     onDrop,
-    accept: 'image/*',
+    accept: "image/*",
     maxSize: 5000000,
   });
 
   const fileStyle = useMemo(() => (
     `dark:bg-nft-black-1 bg-white border dark:border-white border-nft-gray-2 flex flex-col items-center p-5 rounded-sm border-dashed
-    ${isDragActive ? ' border-file-active' : ''}
-    ${isDragAccept ? ' border-file-accept' : ''}
-    ${isDragReject ? ' border-file-reject' : ''}`
+    ${isDragActive ? " border-file-active" : ""}
+    ${isDragAccept ? " border-file-accept" : ""}
+    ${isDragReject ? " border-file-reject" : ""}`
   ), [isDragActive, isDragReject, isDragAccept]);
 
   if (isLoadingNFT) {
@@ -68,7 +68,7 @@ const CreateNFT = () => {
                     height={100}
                     objectFit="contain"
                     alt="file upload"
-                    className={theme === 'light' ? 'filter invert' : undefined}
+                    className={theme === "light" ? "filter invert" : undefined}
                   />
                 </div>
 

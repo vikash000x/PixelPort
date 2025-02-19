@@ -1,6 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
-import { NFTContext } from '../context/NFTContext';
-import { Loader, NFTCard } from '../components';
+import { useState, useEffect, useContext } from "react";
+import { NFTContext } from "../context/NFTContext";
+import { Loader, NFTCard } from "../components";
 
 const ListedNFTs = () => {
   const { fetchMyNFTsOrListedNFTs } = useContext(NFTContext);
@@ -8,7 +8,7 @@ const ListedNFTs = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchMyNFTsOrListedNFTs('fetchItemsListed')
+    fetchMyNFTsOrListedNFTs("fetchItemsListed")
       .then((items) => {
         setNfts(items);
         setIsLoading(false);

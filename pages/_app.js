@@ -1,9 +1,9 @@
-import Script from 'next/script';
-import { ThemeProvider } from 'next-themes';
+import Script from "next/script";
+import { ThemeProvider } from "next-themes";
 
-import { NFTProvider } from '../context/NFTContext';
-import { Navbar, Footer } from '../components';
-import '../styles/globals.css';
+import { NFTProvider } from "../context/NFTContext";
+import { Navbar, Footer } from "../components";
+import "../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }) => (
   <NFTProvider>

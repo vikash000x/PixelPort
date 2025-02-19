@@ -1,7 +1,7 @@
 export const makeId = (Length) => {
-  let result = '';
+  let result = "";
 
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   const charactersLength = characters.length;
 
   for (let i = 0; i < Length; i += 1) {

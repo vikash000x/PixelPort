@@ -1,17 +1,17 @@
-import { useState, useEffect, useContext } from 'react';
-import Image from 'next/image';
+import { useState, useEffect, useContext } from "react";
+import Image from "next/image";
 
-import { NFTContext } from '../context/NFTContext';
-import { Loader, NFTCard, Banner, SearchBar } from '../components';
-import images from '../assets';
-import { shortenAddress } from '../utils/shortenAddress';
+import { NFTContext } from "../context/NFTContext";
+import { Loader, NFTCard, Banner, SearchBar } from "../components";
+import images from "../assets";
+import { shortenAddress } from "../utils/shortenAddress";
 
 const MyNFTs = () => {
   const { fetchMyNFTsOrListedNFTs, currentAccount } = useContext(NFTContext);
   const [nfts, setNfts] = useState([]);
   const [nftsCopy, setNftsCopy] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [activeSelect, setActiveSelect] = useState('Recently Added');
+  const [activeSelect, setActiveSelect] = useState("Recently Added");
 
   useEffect(() => {
     fetchMyNFTsOrListedNFTs()
@@ -26,13 +26,13 @@ const MyNFTs = () => {
     const sortedNfts = [...nfts];
 
     switch (activeSelect) {
-      case 'Price (low to high)':
+      case "Price (low to high)":
         setNfts(sortedNfts.sort((a, b) => a.price - b.price));
         break;
-      case 'Price (high to low)':
+      case "Price (high to low)":
         setNfts(sortedNfts.sort((a, b) => b.price - a.price));
         break;
-      case 'Recently added':
+      case "Recently added":
         setNfts(sortedNfts.sort((a, b) => b.tokenId - a.tokenId));
         break;
       default:

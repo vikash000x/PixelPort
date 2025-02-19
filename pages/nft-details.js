@@ -1,11 +1,11 @@
-import { useState, useEffect, useContext } from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { useState, useEffect, useContext } from "react";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
-import { NFTContext } from '../context/NFTContext';
-import { Loader, Button, Modal } from '../components';
-import images from '../assets';
-import { shortenAddress } from '../utils/shortenAddress';
+import { NFTContext } from "../context/NFTContext";
+import { Loader, Button, Modal } from "../components";
+import images from "../assets";
+import { shortenAddress } from "../utils/shortenAddress";
 
 const PaymentBodyCmp = ({ nft, nftCurrency }) => (
   <div className="flex flex-col">
@@ -43,7 +43,7 @@ const PaymentBodyCmp = ({ nft, nftCurrency }) => (
 const NFTDetails = () => {
   const { isLoadingNFT, currentAccount, nftCurrency, buyNFT } = useContext(NFTContext);
   const [isLoading, setIsLoading] = useState(true);
-  const [nft, setNft] = useState({ image: '', tokenId: '', name: '', owner: '', price: '', seller: '' });
+  const [nft, setNft] = useState({ image: "", tokenId: "", name: "", owner: "", price: "", seller: "" });
   const router = useRouter();
   const [paymentModal, setPaymentModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
@@ -171,7 +171,7 @@ const NFTDetails = () => {
               <Button
                 btnName="Check it out"
                 classStyles="sm:mb-5 sm:mr-0 rounded-xl"
-                handleClick={() => router.push('./my-nfts')}
+                handleClick={() => router.push("./my-nfts")}
               />
             </div>
           )}
