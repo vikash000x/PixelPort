@@ -1,6 +1,7 @@
-import { useState, useEffect, useContext } from "react";
-import { NFTContext } from "../context/NFTContext";
-import { Loader, NFTCard } from "../components";
+import { useState, useEffect, useContext } from 'react';
+import { NFTContext } from '../context/NFTContext';
+import { Loader, NFTCard } from '../components';
+import ClipLoader from "react-spinners/ClipLoader";
 
 const ListedNFTs = () => {
   const { fetchMyNFTsOrListedNFTs } = useContext(NFTContext);
@@ -8,7 +9,7 @@ const ListedNFTs = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchMyNFTsOrListedNFTs("fetchItemsListed")
+    fetchMyNFTsOrListedNFTs('fetchItemsListed')
       .then((items) => {
         setNfts(items);
         setIsLoading(false);
@@ -18,7 +19,18 @@ const ListedNFTs = () => {
   if (isLoading) {
     return (
       <div className="flexStart min-h-screen">
-        <Loader />
+       <ClipLoader
+  color="#FF1493"  // DeepPink, highly visible in both dark and light modes
+ 
+  cssOverride={{
+    display: "block",
+    margin: "0 auto",
+  }}
+  size={250}  // Larger size for better visibility
+  aria-label="Loading Spinner"
+  data-testid="loader"
+/>
+
       </div>
     );
   }

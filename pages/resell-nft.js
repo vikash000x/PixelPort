@@ -1,16 +1,19 @@
-import { useState, useEffect, useContext } from "react";
-import { useRouter } from "next/router";
-import axios from "axios";
+import { useState, useEffect, useContext } from 'react';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import Image from 'next/image';
 
-import { NFTContext } from "../context/NFTContext";
-import { Loader, Button, Input } from "../components";
+import ClipLoader from "react-spinners/ClipLoader";
+
+import { NFTContext } from '../context/NFTContext';
+import { Loader, Button, Input } from '../components';
 
 const ResellNFT = () => {
   const { createSale, isLoadingNFT } = useContext(NFTContext);
   const router = useRouter();
   const { tokenId, tokenURI } = router.query;
-  const [price, setPrice] = useState("");
-  const [image, setImage] = useState("");
+  const [price, setPrice] = useState('');
+  const [image, setImage] = useState('');
 
   const fetchNFT = async () => {
     if (!tokenURI) return;
@@ -27,13 +30,24 @@ const ResellNFT = () => {
 
   const resell = async () => {
     await createSale(tokenURI, price, true, tokenId);
-    router.push("/");
+    router.push('/');
   };
 
   if (isLoadingNFT) {
     return (
       <div className="flexStart min-h-screen">
-        <Loader />
+        <ClipLoader
+  color="#FF1493"  // DeepPink, highly visible in both dark and light modes
+  
+  cssOverride={{
+    display: "block",
+    margin: "0 auto",
+  }}
+  size={250}  // Larger size for better visibility
+  aria-label="Loading Spinner"
+  data-testid="loader"
+/>
+
       </div>
     );
   }
@@ -43,7 +57,7 @@ const ResellNFT = () => {
       <div className="w-3/5 md:w-full">
         <h1 className="font-poppins dark:text-white text-nft-black font-semibold text-2xl">Resell NFT</h1>
         <Input inputType="number" title="Price" placeholder="NFT Price" handleClick={(e) => setPrice(e.target.value)} />
-        {image && <img src={image} className="rounded mt-4" width={350} />}
+        {image && <Image src={image} className="rounded mt-4" width={350} />}
         <div className="mt-7 w-full flex justify-end">
           <Button btnName="List NFT" classStyles="rounded-xl" handleClick={resell} />
         </div>

@@ -19,7 +19,15 @@ module.exports = {
     "react",
   ],
   rules: {
-    quotes: ["error", "double", { avoidEscape: true, allowTemplateLiterals: true }], // Enforce double quotes
+
+    "quotes": "off",
+    "eol-last": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "@next/next/no-img-element": "off",
+     "arrow-body-style": "off",
+ //   quotes: ["error", "double", { avoidEscape: true, allowTemplateLiterals: true }], // Enforce double quotes
+ "no-trailing-spaces": "off",
+// "quotes": ["error", "double", { "avoidEscape": true }],
     "no-console": 0,
     "jsx-a11y/label-has-associated-control": 0,
     "no-nested-ternary": 0,
@@ -91,7 +99,8 @@ module.exports = {
           "invalidHref",
           "preferButton",
         ],
-      },
+ 
+      }
     ],
   },
 };

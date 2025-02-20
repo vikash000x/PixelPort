@@ -16,11 +16,11 @@ import nft2 from "./nft2.png";
 import nft3 from "./nft3.png";
 import nft4 from "./nft4.png";
 import nft5 from "./nft5.png";
-import nft6 from "./nft6.jpeg";
+import nft6 from "./nft3.png";
 import nft7 from "./nft7.png";
 import nft8 from "./nft8.png";
 import nft9 from "./nft9.png";
-import nft10 from "./nft10.jpg";
+import nft10 from "./nft5.png";
 import creator from "./creator.png";
 import creator1 from "./creator1.png";
 import creator2 from "./creator2.png";
@@ -31,11 +31,11 @@ import creator6 from "./creator6.png";
 import creator7 from "./creator7.png";
 import creator8 from "./creator8.png";
 import creator9 from "./creator9.png";
-import creator10 from "./creator10.jpg";
+import creator10 from "./creator5.png";
 import right from "./right.png";
 import left from "./left.png";
 import headerbg from "./headerbg.png";
-import loader from "./loader.gif";
+import loader from "./creator8.png";
 import arrow from "./arrow.png";
 
 export default {

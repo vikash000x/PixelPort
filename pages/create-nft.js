@@ -1,50 +1,57 @@
-import { useState, useCallback, useMemo, useContext } from "react";
-import { useRouter } from "next/router";
-import { useDropzone } from "react-dropzone";
-import Image from "next/image";
-import { useTheme } from "next-themes";
+import { useState, useCallback, useMemo, useContext } from 'react';
+import { useRouter } from 'next/router';
+import { useDropzone } from 'react-dropzone';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import ClipLoader from "react-spinners/ClipLoader";
 
-import { NFTContext } from "../context/NFTContext";
-import { Button, Input, Loader } from "../components";
-import images from "../assets";
+import { NFTContext } from '../context/NFTContext';
+import { Button, Input, Loader } from '../components';
+import images from '../assets';
 
 const CreateNFT = () => {
   const [fileUrl, setFileUrl] = useState(null);
-  const [formInput, setFormInput] = useState({ price: "", name: "", description: "" });
+  const [formInput, setFormInput] = useState({ price: '', name: '', description: '' });
   const { theme } = useTheme();
   const { isLoadingNFT, uploadToIPFS, createNFT } = useContext(NFTContext);
   const router = useRouter();
 
   const onDrop = useCallback(async (acceptedFile) => {
-    console.log("acceptedFile", acceptedFile);
     const url = await uploadToIPFS(acceptedFile[0]);
 
-    console.log("before url");
-
     console.log({ url });
-
-    console.log(setFileUrl(url));
 
     setFileUrl(url);
   }, []);
 
   const { getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject } = useDropzone({
     onDrop,
-    accept: "image/*",
+    accept: 'image/*',
     maxSize: 5000000,
   });
 
   const fileStyle = useMemo(() => (
     `dark:bg-nft-black-1 bg-white border dark:border-white border-nft-gray-2 flex flex-col items-center p-5 rounded-sm border-dashed
-    ${isDragActive ? " border-file-active" : ""}
-    ${isDragAccept ? " border-file-accept" : ""}
-    ${isDragReject ? " border-file-reject" : ""}`
+    ${isDragActive ? ' border-file-active' : ''}
+    ${isDragAccept ? ' border-file-accept' : ''}
+    ${isDragReject ? ' border-file-reject' : ''}`
   ), [isDragActive, isDragReject, isDragAccept]);
 
   if (isLoadingNFT) {
     return (
       <div className="flexStart min-h-screen">
-        <Loader />
+      <ClipLoader
+  color="#FF1493"  // DeepPink, highly visible in both dark and light modes
+ 
+  cssOverride={{
+    display: "block",
+    margin: "0 auto",
+  }}
+  size={250}  // Larger size for better visibility
+  aria-label="Loading Spinner"
+  data-testid="loader"
+/>
+
       </div>
     );
   }
@@ -68,7 +75,7 @@ const CreateNFT = () => {
                     height={100}
                     objectFit="contain"
                     alt="file upload"
-                    className={theme === "light" ? "filter invert" : undefined}
+                    className={theme === 'light' ? 'filter invert' : undefined}
                   />
                 </div>
 
@@ -79,7 +86,7 @@ const CreateNFT = () => {
             {fileUrl && (
               <aside>
                 <div>
-                  <img
+                  <Image
                     src={fileUrl}
                     alt="Asset_file"
                   />
