@@ -3,56 +3,29 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    "plugin:react/recommended",
-    "airbnb",
-    "next",
-  ],
+  extends: ["plugin:react/recommended", "airbnb"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 12,
+    ecmaVersion: 13,
     sourceType: "module",
   },
-  plugins: [
-    "react",
-  ],
+  plugins: ["react"],
   rules: {
-
-    "quotes": "off",
-    "eol-last": "off",
-    "react-hooks/exhaustive-deps": "warn",
-    "@next/next/no-img-element": "off",
-     "arrow-body-style": "off",
- //   quotes: ["error", "double", { avoidEscape: true, allowTemplateLiterals: true }], // Enforce double quotes
- "no-trailing-spaces": "off",
-// "quotes": ["error", "double", { "avoidEscape": true }],
-    "no-console": 0,
-    "jsx-a11y/label-has-associated-control": 0,
-    "no-nested-ternary": 0,
-    "consistent-return": 0,
-    "no-alert": 0,
-    "react/jsx-no-constructed-context-values": 0,
+    "react/function-component-definition": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-props-no-spreading": 0,
     "import/extensions": 0,
     "react/prop-types": 0,
     "linebreak-style": 0,
     "react/state-in-constructor": 0,
     "import/prefer-default-export": 0,
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-props-no-spreading": "off",
-    "jsx-a11y/no-noninteractive-element-interactions": "off",
-    "react/function-component-definition": [
-      2,
-      {
-        namedComponents: "arrow-function",
-        unnamedComponents: "arrow-function",
-      },
-    ],
-    "max-len": [
-      2,
-      550,
-    ],
+    "max-len": [2, 250],
+    "operator-linebreak": 0,
+    "comma-dangle": 0,
+    "no-console": 0,
+    "no-alert": 0,
     "no-multiple-empty-lines": [
       "error",
       {
@@ -63,16 +36,7 @@ module.exports = {
     "no-underscore-dangle": [
       "error",
       {
-        allow: [
-          "_d",
-          "_dh",
-          "_h",
-          "_id",
-          "_m",
-          "_n",
-          "_t",
-          "_text",
-        ],
+        allow: ["_d", "_dh", "_h", "_id", "_m", "_n", "_t", "_text"],
       },
     ],
     "object-curly-newline": 0,
@@ -86,21 +50,12 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
-        components: [
-          "Link",
-        ],
-        specialLink: [
-          "to",
-          "hrefLeft",
-          "hrefRight",
-        ],
-        aspects: [
-          "noHref",
-          "invalidHref",
-          "preferButton",
-        ],
- 
-      }
+        components: ["Link"],
+        specialLink: ["to", "hrefLeft", "hrefRight"],
+        aspects: ["noHref", "invalidHref", "preferButton"],
+      },
     ],
+   quotes: "off"
+
   },
 };

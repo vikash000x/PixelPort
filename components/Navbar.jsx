@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 /* eslint-disable import/no-cycle */
 import { useState, useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
@@ -22,6 +24,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   return (
     <ul className={`list-none flexCenter flex-row ${isMobile && 'flex-col h-full'}`}>
       {['Explore NFTs', 'Listed NFTs', 'My NFTs'].map((item, i) => (
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
         <li
           key={i}
           onClick={() => {
@@ -107,7 +110,7 @@ const Navbar = () => {
             }}
           >
             <Image src={images.logo02} objectFit="contain" width={32} height={32} alt="logo" />
-            <p className=" dark:text-white text-nft-black-1 font-semibold text-lg ml-1">PixelPort</p>
+            <p className=" dark:text-white text-nft-black-1 font-semibold text-lg ml-1">CryptoKet</p>
           </div>
         </Link>
         <Link href="/">
