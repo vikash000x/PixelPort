@@ -74,6 +74,7 @@ export const NFTProvider = ({ children }) => {
       const formData = new FormData();
       formData.append("file", file);
 
+      // eslint-disable-next-line max-len
       const PINATA_JWT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJjODNkNmM4Zi02MWIxLTQ1NzUtYWQyOS1lMjM4N2I0Yjk1NmIiLCJlbWFpbCI6InZpa2FzaHNpbmhhMDQ1QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6IkZSQTEifSx7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6Ik5ZQzEifV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiJhOGYwOTA0MzgyZDAwMGIxZmE2ZCIsInNjb3BlZEtleVNlY3JldCI6ImZkYTI5YTkwMTYyMjI1Y2NiYjI1YTAwMTY0NGM1NjBmOWQxYWM5YjgyZTAwNTNhNjcyN2Y5NWU3NDM0NWRiNWIiLCJleHAiOjE3NzE0NzgzOTF9.ACFnIDkWidVswxW_MxpXS6yFpSYJCbd-9tEiy4U0QU4";
 
       const response = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
@@ -205,6 +206,7 @@ export const NFTProvider = ({ children }) => {
     console.log("Uploading file to IPFS via Pinata...");
 
     // Pinata API details
+    // eslint-disable-next-line max-len
     const PINATA_JWT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJjODNkNmM4Zi02MWIxLTQ1NzUtYWQyOS1lMjM4N2I0Yjk1NmIiLCJlbWFpbCI6InZpa2FzaHNpbmhhMDQ1QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaW5fcG9saWN5Ijp7InJlZ2lvbnMiOlt7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6IkZSQTEifSx7ImRlc2lyZWRSZXBsaWNhdGlvbkNvdW50IjoxLCJpZCI6Ik5ZQzEifV0sInZlcnNpb24iOjF9LCJtZmFfZW5hYmxlZCI6ZmFsc2UsInN0YXR1cyI6IkFDVElWRSJ9LCJhdXRoZW50aWNhdGlvblR5cGUiOiJzY29wZWRLZXkiLCJzY29wZWRLZXlLZXkiOiJhOGYwOTA0MzgyZDAwMGIxZmE2ZCIsInNjb3BlZEtleVNlY3JldCI6ImZkYTI5YTkwMTYyMjI1Y2NiYjI1YTAwMTY0NGM1NjBmOWQxYWM5YjgyZTAwNTNhNjcyN2Y5NWU3NDM0NWRiNWIiLCJleHAiOjE3NzE0NzgzOTF9.ACFnIDkWidVswxW_MxpXS6yFpSYJCbd-9tEiy4U0QU4";
 
     const PINATA_URL = "https://api.pinata.cloud/pinning/pinFileToIPFS";
@@ -326,6 +328,7 @@ export const NFTProvider = ({ children }) => {
   }, []);
 
   return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <NFTContext.Provider value={{ nftCurrency, connectWallet, currentAccount, uploadToIPFS, createNFT, fetchNFTs, fetchMyNFTsOrListedNFTs, buyNFT, createSale, isLoadingNFT }}>
       {children}
     </NFTContext.Provider>

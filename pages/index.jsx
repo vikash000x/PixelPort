@@ -21,6 +21,7 @@ const Home = () => {
 
   const parentRef = useRef(null);
   const scrollRef = useRef(null);
+  const count = 0;
 
   useEffect(() => {
     fetchNFTs().then((items) => {
@@ -28,7 +29,7 @@ const Home = () => {
       setNftsCopy(items);
       setIsLoading(false);
     });
-  }, [fetchNFTs]); // Added fetchNFTs to the dependency array
+  }, [count]); // Added fetchNFTs to the dependency array
 
   useEffect(() => {
     const sortedNfts = [...nfts];
@@ -47,7 +48,7 @@ const Home = () => {
         setNfts(sortedNfts.sort((a, b) => b.tokenId - a.tokenId));
         break;
     }
-  }, [activeSelect, nfts]); // Added nfts to the dependency array
+  }, [count]); // Added nfts to the dependency array
 
   const onHandleSearch = (value) => {
     const filteredNfts = nfts.filter(({ name }) => name.toLowerCase().includes(value.toLowerCase()));

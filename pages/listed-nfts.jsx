@@ -15,6 +15,8 @@ const ListedNFTs = () => {
     });
   }, [fetchMyNFTsOrListedNFTs]); // Added missing dependency
 
+  console.log("heyyyli", nfts);
+
   if (isLoading) {
     return (
       <div className="flexStart min-h-screen">

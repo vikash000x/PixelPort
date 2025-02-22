@@ -14,13 +14,16 @@ const MyNFTs = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [activeSelect, setActiveSelect] = useState("Recently Added");
 
+  console.log("heyyy11", fetchMyNFTsOrListedNFTs);
+
   useEffect(() => {
-    fetchMyNFTsOrListedNFTs().then((items) => {
+    fetchMyNFTsOrListedNFTs("fetchMyNFTs").then((items) => {
       setNfts(items);
       setNftsCopy(items);
       setIsLoading(false);
     });
-  }, []);
+  }, [fetchMyNFTsOrListedNFTs]);
+  console.log("heyyy", nfts);
 
   useEffect(() => {
     const sortedNfts = [...nfts];
